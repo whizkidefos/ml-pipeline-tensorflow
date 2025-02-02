@@ -35,8 +35,8 @@ A powerful web-based platform for training and deploying machine learning models
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/mlops-pipeline.git
-cd mlops-pipeline
+git clone https://github.com/whizkidefos/ml-pipeline-tensorflow.git
+cd ml-pipeline-tensorflow
 ```
 
 2. Install dependencies:
@@ -118,7 +118,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Your Name - [@your_twitter](https://twitter.com/your_twitter)
 
-Project Link: [https://github.com/your-username/mlops-pipeline](https://github.com/your-username/mlops-pipeline)
+Project Link: [https://github.com/whizkidefos/ml-pipeline-tensorflow](https://github.com/whizkidefos/ml-pipeline-tensorflow)
 
 ## Roadmap
 
