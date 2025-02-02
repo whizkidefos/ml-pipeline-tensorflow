@@ -2,7 +2,7 @@
 
 A powerful web-based platform for training and deploying machine learning models directly in your browser using TensorFlow.js. Perfect for prototyping, experimentation, and educational purposes.
 
-![MLOps Pipeline](https://user-images.githubusercontent.com/your-username/mlops-pipeline/main/screenshot.png)
+![MLOps Pipeline](/public/preview.svg)
 
 ## Features
 
