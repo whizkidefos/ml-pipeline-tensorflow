@@ -22,15 +22,18 @@ const ModelTraining: React.FC<ModelTrainingProps> = ({
       setMetrics([]);
       
       // Get input shape safely
-      const inputShape = dataset.xs.shape;
-      if (!inputShape || inputShape.length < 2) {
+      const shape = dataset.xs.shape;
+      if (!shape || shape.length < 2 || typeof shape[1] !== 'number') {
         throw new Error('Invalid input shape');
       }
+
+      const inputFeatures = shape[1];
+      const outputFeatures = dataset.ys.shape[1] ?? (selectedTask === 'classification' ? 2 : 1);
 
       // Create a sequential model based on config
       const layers = [
         tf.layers.dense({
-          inputShape: [inputShape[1]], // Get the feature dimension
+          inputShape: [inputFeatures],
           units: modelConfig.neuronsPerLayer,
           activation: modelConfig.activation
         })
@@ -47,13 +50,9 @@ const ModelTraining: React.FC<ModelTrainingProps> = ({
       }
 
       // Add output layer
-      const outputUnits = selectedTask === 'classification'
-        ? (dataset.ys.shape[1] || 2) // Use actual number of classes or default to 2
-        : 1;
-
       layers.push(
         tf.layers.dense({
-          units: outputUnits,
+          units: outputFeatures,
           activation: selectedTask === 'classification' ? 'softmax' : 'linear'
         })
       );
