@@ -1,14 +1,14 @@
 import React, { useCallback } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import { CloudArrowUpIcon } from '@heroicons/react/24/solid';
+import { DatasetUploadProps } from '../types';
 
 interface Props {
   setDataset: (dataset: { xs: tf.Tensor, ys: tf.Tensor } | null) => void;
   selectedTask: 'classification' | 'regression';
-  isDarkMode: boolean;
 }
 
-const DatasetUpload: React.FC<Props> = ({ setDataset, selectedTask, isDarkMode }) => {
+const DatasetUpload: React.FC<Props> = ({ setDataset, selectedTask }) => {
   const handleFileUpload = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -36,8 +36,8 @@ const DatasetUpload: React.FC<Props> = ({ setDataset, selectedTask, isDarkMode }
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-      <h2 className="text-xl font-semibold mb-4 flex items-center">
-        <CloudArrowUpIcon className="w-5 h-5 mr-2 text-primary-500" />
+      <h2 className="text-xl font-semibold mb-4 flex items-center dark:text-white">
+        <CloudArrowUpIcon className="w-5 h-5 mr-2 text-blue-500" />
         Dataset Upload
       </h2>
       <div className="space-y-4">
@@ -61,7 +61,7 @@ const DatasetUpload: React.FC<Props> = ({ setDataset, selectedTask, isDarkMode }
           />
           <label
             htmlFor="file-upload"
-            className="w-full flex items-center justify-center px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-primary-500 dark:hover:border-primary-400 transition-colors duration-200"
+            className="w-full flex items-center justify-center px-4 py-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-colors duration-200"
           >
             <div className="text-center">
               <CloudArrowUpIcon className="mx-auto h-8 w-8 text-gray-400" />
@@ -77,6 +77,6 @@ const DatasetUpload: React.FC<Props> = ({ setDataset, selectedTask, isDarkMode }
       </div>
     </div>
   );
-}
+};
 
 export default DatasetUpload;
